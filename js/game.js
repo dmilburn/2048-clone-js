@@ -52,7 +52,14 @@ Board.prototype.spawnNumber = function() {
   }
 }
 
+Board.prototype.checkDirection = function(direction) {
+  if (direction=="up" || direction=="down") {
+    this.board = _.zip.apply(_, this.board);
+  }
+}
+
 Board.prototype.move = function(direction) {
+  this.checkDirection(direction);
   for (i=0; i<4; i++) {
     this.board[i] = _.without(this.board[i], 0);
     for (k=0; k < this.board[i].length - 1; k++) {
@@ -64,52 +71,13 @@ Board.prototype.move = function(direction) {
     }
     var paddingAmount = 4 - this.board[i].length;
     for (j=0; j<paddingAmount; j++) {
-      if (direction=="right") {
+      if (direction=="right" || direction=="down") {
         this.board[i].unshift(0); }
       else {
         this.board[i].push(0); }
     }
   }
-  this.spawnNumber();
-}
-
-Board.prototype.moveUp = function() {
-  var transposedBoard = _.zip.apply(_, this.board);
-  for (i=0; i<4; i++) {
-    transposedBoard[i] = _.without(transposedBoard[i], 0);
-    for (k=0; k < transposedBoard[i].length - 1; k++) {
-      if (transposedBoard[i][k] === transposedBoard[i][k+1]) {
-        transposedBoard[i][k+1] += transposedBoard[i][k];
-        this.score += transposedBoard[i][k+1];
-        transposedBoard[i].splice(k, 1);
-      }
-    }
-    var paddingAmount = 4 - transposedBoard[i].length;
-    for (j=0; j<paddingAmount; j++) {
-      transposedBoard[i].push(0);
-    }
-  }
-  this.board = _.zip.apply(_, transposedBoard);
-  this.spawnNumber();
-}
-
-Board.prototype.moveDown = function() {
-  var transposedBoard = _.zip.apply(_, this.board);
-  for (i=0; i<4; i++) {
-    transposedBoard[i] = _.without(transposedBoard[i], 0);
-    for (k=0; k < transposedBoard[i].length - 1; k++) {
-      if (transposedBoard[i][k] === transposedBoard[i][k+1]) {
-        transposedBoard[i][k+1] += transposedBoard[i][k];
-        this.score += transposedBoard[i][k+1];
-        transposedBoard[i].splice(k, 1);
-      }
-    }
-    var paddingAmount = 4 - transposedBoard[i].length;
-    for (j=0; j<paddingAmount; j++) {
-      transposedBoard[i].unshift(0);
-    }
-  }
-  this.board = _.zip.apply(_, transposedBoard);
+  this.checkDirection(direction);
   this.spawnNumber();
 }
 

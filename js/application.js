@@ -3,11 +3,11 @@ $(document).ready(function() {
   Board.newGame();
 
   Mousetrap.bind("up", function(){
-    board.moveUp();
+    board.move("up");
     board.draw();
   })
   Mousetrap.bind("down", function(){
-    board.moveDown();
+    board.move("down");
     board.draw();
   })
   Mousetrap.bind("left", function(){
