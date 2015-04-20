@@ -18,6 +18,11 @@ $(document).ready(function() {
     board.moveRight();
     board.draw();
   })
+
+  $('#new-game').on('click', function() {
+    Board.newGame();
+  })
+
 });
 
 
