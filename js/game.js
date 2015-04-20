@@ -36,7 +36,7 @@ Board.prototype.spawnNumber = function() {
   var innerIndex = Math.floor(Math.random() * 4);
   if (this.board[outerIndex][innerIndex] === 0) {
     // 2 or 4
-    this.board[outerIndex][innerIndex] = Math.floor(Math.random() + 1) * 2;
+    this.board[outerIndex][innerIndex] = Math.floor((Math.random() * 2) + 1 ) * 2;
   }
   else {
     this.spawnNumber();
