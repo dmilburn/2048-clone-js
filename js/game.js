@@ -125,7 +125,7 @@ Board.prototype.moveDown = function() {
 }
 
 Board.prototype.draw = function() {
-  var colors = ["cornflowerblue", "darkorchid", "firebrick", "goldenrod", "hotpink", "lightseagreen", "midnightblue", "orangered"];
+  var colors = ["cornflowerblue", "aquamarine", "hotpink", "lightseagreen", "lavenderblush", "dodgerblue", "lightcoral", "lightgreen"];
   for (outerIndex=0; outerIndex<4; outerIndex++) {
     for (innerIndex=0; innerIndex<4; innerIndex++ ) {
       if (this.board[outerIndex][innerIndex] !== 0) {
