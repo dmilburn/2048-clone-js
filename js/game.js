@@ -29,6 +29,21 @@ Board.prototype.toString = function(){
   console.log(flattenedBoard.join(""));
 }
 
+Board.prototype.spawnNumber = function() {
+  // check entire nested board for 0.
+  // replace one of those 0s with a 2 or 4.
+  var outerIndex = Math.floor(Math.random() * 4);
+  var innerIndex = Math.floor(Math.random() * 4);
+  if (this.board[outerIndex][innerIndex] === 0) {
+    // 2 or 4
+    this.board[outerIndex][innerIndex] = Math.floor(Math.random() + 1) * 2;
+  }
+  else {
+    this.spawnNumber();
+  }
+}
+
+
 Board.prototype.moveRight = function() {
   for (i=0; i<4; i++) {
     this.board[i] = _.without(this.board[i], 0);
