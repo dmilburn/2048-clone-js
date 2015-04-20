@@ -1,7 +1,7 @@
 TO DO:
 
-movement helper methods: rotate and transpose
-actual movement methods
+add numbers together and shift everything accordingly
+spawn 2s and 4s after each movement
 what happens if you don't input a string?
 
 
