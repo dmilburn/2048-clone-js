@@ -137,3 +137,9 @@ Board.prototype.draw = function() {
   }
 }
 
+Board.newGame = function() {
+  board = new Board();
+  board.setUp();
+  board.draw();
+}
+

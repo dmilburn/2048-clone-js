@@ -1,9 +1,7 @@
 $(document).ready(function() {
 
-  board = new Board();
-  board.setUp();
+  Board.newGame();
 
-  board.draw();
   Mousetrap.bind("up", function(){
     board.moveUp();
     board.draw();
