@@ -10,6 +10,10 @@ $(document).ready(function() {
     })
   });
 
+  $('#new-game').on('click', function() {
+    Board.newGame();
+  })
+
 });
 
 
