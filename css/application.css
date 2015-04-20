@@ -28,6 +28,10 @@ td {
   color: white;
 }
 
+a {
+  color: mediumseagreen;
+}
+
 #new-game {
   width: 5%;
   height: 30px;
