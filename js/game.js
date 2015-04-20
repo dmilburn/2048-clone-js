@@ -123,7 +123,10 @@ Board.prototype.moveDown = function() {
 }
 
 Board.prototype.draw = function() {
-  document.getElementById("0-0").innerHTML = this.board[0][0];
-
+  for (outerIndex=0; outerIndex<4; outerIndex++) {
+    for (innerIndex=0; innerIndex<4; innerIndex++ ) {
+      document.getElementById(outerIndex + "-" + innerIndex).innerHTML = this.board[outerIndex][innerIndex];
+    }
+  }
 }
 
