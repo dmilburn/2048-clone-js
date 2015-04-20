@@ -30,21 +30,10 @@ Board.prototype.toString = function(){
 }
 
 Board.prototype.moveRight = function() {
-// for each outerIndex:
-  // starting at innerIndex[2], check if innerIndex[i+1] === 0
-    // if it is 0:
-      // change innerIndex[i+1] to the value of innerIndex[i]
-      // change the value of innerIndex[i] to 0.
-  // then innerIndex[1]
-  // then innerIndex[0]
-  for (var outerIndex=0; outerIndex<4; outerIndex++) {
-    for (var innerIndex=2; innerIndex >=0; innerIndex--) {
-      if (this.board[outerIndex][innerIndex+1] === 0) {
-        this.board[outerIndex][innerIndex+1] = this.board[outerIndex][innerIndex];
-        this.board[outerIndex][innerIndex] = 0;
-      }
-    }
-  }
+  // remove all 0s from the whole board, using _.without(params_go_here)
+  // (4 - array.length) number of times, pad the left of the array with 0s, using array.unshift(0)
+
+
 }
 
 Board.prototype.moveLeft = function() {
