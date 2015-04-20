@@ -125,13 +125,12 @@ Board.prototype.moveDown = function() {
 }
 
 Board.prototype.draw = function() {
+  var colors = ["cornflowerblue", "darkorchid", "firebrick", "goldenrod", "hotpink", "lightseagreen", "midnightblue", "orangered"];
   for (outerIndex=0; outerIndex<4; outerIndex++) {
     for (innerIndex=0; innerIndex<4; innerIndex++ ) {
       if (this.board[outerIndex][innerIndex] !== 0) {
         document.getElementById(outerIndex + "-" + innerIndex).innerHTML = this.board[outerIndex][innerIndex];
-        if (this.board[outerIndex][innerIndex] == 8) {
-          document.getElementById(outerIndex + "-" + innerIndex).style.background = "tomato";
-        }
+          document.getElementById(outerIndex + "-" + innerIndex).style.background = colors[(Math.log2(this.board[outerIndex][innerIndex]))%8];
       }
       else {
         document.getElementById(outerIndex + "-" + innerIndex).innerHTML = "";
