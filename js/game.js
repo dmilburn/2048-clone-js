@@ -25,6 +25,9 @@ Board.prototype.setUp = function() {
       this.board[outerArrayIndex][innerArrayIndex].number = initialValues[i];
     }
   }
+}
 
 
+Board.prototype.toString = function(){
+  this.board
 }
