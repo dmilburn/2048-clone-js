@@ -122,5 +122,8 @@ Board.prototype.moveDown = function() {
   this.spawnNumber();
 }
 
+Board.prototype.draw = function() {
+  document.getElementById("0-0").innerHTML = this.board[0][0];
 
+}
 
