@@ -6,5 +6,9 @@ board.setUp();
 
 board.toString();
 
+board.moveRight();
+
+board.toString();
+
 
 });

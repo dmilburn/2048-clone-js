@@ -44,7 +44,14 @@ Board.prototype.moveRight = function() {
       // change the value of innerIndex[i] to 0.
   // then innerIndex[1]
   // then innerIndex[0]
-
+  for (var outerIndex=0; outerIndex<4; outerIndex++) {
+    for (var innerIndex=2; innerIndex >=0; innerIndex--) {
+      if (this.board[outerIndex][innerIndex+1].number === 0) {
+        this.board[outerIndex][innerIndex+1].number = this.board[outerIndex][innerIndex].number;
+        this.board[outerIndex][innerIndex].number = 0;
+      }
+    }
+  }
 }
 
 Board.prototype.moveLeft = function() {
