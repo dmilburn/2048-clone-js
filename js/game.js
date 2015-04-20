@@ -34,7 +34,7 @@ Board.prototype.toString = function(){
       flattenedBoard[i] += "\n";
     }
   }
-  console.log(flattenedBoard.toString());
+  console.log(flattenedBoard.join(""));
 }
 
 
