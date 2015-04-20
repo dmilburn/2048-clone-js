@@ -72,8 +72,8 @@ Board.prototype.moveLeft = function() {
     this.board[i] = _.without(this.board[i], 0);
     for (k=0; k < this.board[i].length - 1; k++) {
       if (this.board[i][k] === this.board[i][k+1]) {
-        this.board[i][k] += this.board[i][k+1];
-        this.board[i].splice(k+1, 1);
+        this.board[i][k+1] += this.board[i][k];
+        this.board[i].splice(k, 1);
       }
     }
     var paddingAmount = 4 - this.board[i].length;
@@ -90,8 +90,8 @@ Board.prototype.moveUp = function() {
     transposedBoard[i] = _.without(transposedBoard[i], 0);
     for (k=0; k < transposedBoard[i].length - 1; k++) {
       if (transposedBoard[i][k] === transposedBoard[i][k+1]) {
-        transposedBoard[i][k] += transposedBoard[i][k+1];
-        transposedBoard[i].splice(k+1, 1);
+        transposedBoard[i][k+1] += transposedBoard[i][k];
+        transposedBoard[i].splice(k, 1);
       }
     }
     var paddingAmount = 4 - transposedBoard[i].length;
