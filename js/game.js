@@ -30,10 +30,15 @@ Board.prototype.toString = function(){
 }
 
 Board.prototype.moveRight = function() {
-  // remove all 0s from the whole board, using _.without(params_go_here)
+  // remove all 0s from the whole board, using _.without(array, params_go_here)
   // (4 - array.length) number of times, pad the left of the array with 0s, using array.unshift(0)
-
-
+  for (i=0; i<4; i++) {
+    this.board[i] = _.without(this.board[i], 0);
+    var paddingAmount = 4 - this.board[i].length;
+    for (j=0; j<paddingAmount; j++) {
+      this.board[i].unshift(0);
+    }
+  }
 }
 
 Board.prototype.moveLeft = function() {
