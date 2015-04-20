@@ -1,5 +1,7 @@
 function Board(string) {
-  this.input = string;
+  var defaultBoardStart = _.shuffle([2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+  defaultBoardStart = defaultBoardStart.join("");
+  this.input = defaultBoardStart;
   this.board = [[0, 0, 0, 0],
                 [0, 0, 0, 0],
                 [0, 0, 0, 0],
