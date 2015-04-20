@@ -11,11 +11,11 @@ $(document).ready(function() {
     board.draw();
   })
   Mousetrap.bind("left", function(){
-    board.moveLeft();
+    board.move("left");
     board.draw();
   })
   Mousetrap.bind("right", function(){
-    board.moveRight();
+    board.move("right");
     board.draw();
   })
 
