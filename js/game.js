@@ -18,3 +18,15 @@
 
 // How do blocks slide?
 // Move as far as possible in the direction, before hitting a boundary or another square.
+
+// How does the nested array correspond to the view?
+
+// [[2, 0, 0, 0],
+// [0, 0, 0, 2],
+// [0, 0, 0, 0],
+// [0, 0, 0, 0]
+// ]
+
+// Methods to move left and right require some kind of array rotation.
+  // Write a method like Ruby's rotate?
+// Methods to move up and down require some kind of transposition of inner arrays, then rotating that.
