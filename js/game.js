@@ -125,7 +125,12 @@ Board.prototype.moveDown = function() {
 Board.prototype.draw = function() {
   for (outerIndex=0; outerIndex<4; outerIndex++) {
     for (innerIndex=0; innerIndex<4; innerIndex++ ) {
-      document.getElementById(outerIndex + "-" + innerIndex).innerHTML = this.board[outerIndex][innerIndex];
+      if (this.board[outerIndex][innerIndex] !== 0) {
+        document.getElementById(outerIndex + "-" + innerIndex).innerHTML = this.board[outerIndex][innerIndex];
+      }
+      else {
+        document.getElementById(outerIndex + "-" + innerIndex).innerHTML = "";
+      }
     }
   }
 }
