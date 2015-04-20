@@ -1,3 +1,5 @@
+
+
 function Square(number) {
   this.number = number;
 }
@@ -16,18 +18,21 @@ Board.prototype.setUp = function() {
   // find the index of values are NOT 0.
   for (i=0; i<initialValues.length; i++) {
       // find index of the value IF it's not zero
-    if parseInt(initialValues[i]) !== 0 {
+      var numToTest = parseInt(initialValues[i]);
+    if (numToTest !== 0) {
       // convert that index to the index of this.board
       var innerArrayIndex = i%4;
       var outerArrayIndex = parseInt(i/4);
     // change the number property of the square at that index
     //   to the value from the input string.
-      this.board[outerArrayIndex][innerArrayIndex].number = initialValues[i];
+      this.board[outerArrayIndex][innerArrayIndex].number = parseInt(initialValues[i]);
     }
   }
 }
 
 
 Board.prototype.toString = function(){
-  this.board
+  console.log(_.flatten(this.board));
 }
+
+
