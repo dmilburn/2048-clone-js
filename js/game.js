@@ -52,11 +52,27 @@ Board.prototype.moveLeft = function() {
 }
 
 Board.prototype.moveUp = function() {
-
+  var transposedBoard = _.zip.apply(_, this.board);
+  for (i=0; i<4; i++) {
+    transposedBoard[i] = _.without(transposedBoard[i], 0);
+    var paddingAmount = 4 - transposedBoard[i].length;
+    for (j=0; j<paddingAmount; j++) {
+      transposedBoard[i].push(0);
+    }
+  }
+  this.board = _.zip.apply(_, transposedBoard);
 }
 
 Board.prototype.moveDown = function() {
-
+  var transposedBoard = _.zip.apply(_, this.board);
+  for (i=0; i<4; i++) {
+    transposedBoard[i] = _.without(transposedBoard[i], 0);
+    var paddingAmount = 4 - transposedBoard[i].length;
+    for (j=0; j<paddingAmount; j++) {
+      transposedBoard[i].unshift(0);
+    }
+  }
+  this.board = _.zip.apply(_, transposedBoard);
 }
 
 
