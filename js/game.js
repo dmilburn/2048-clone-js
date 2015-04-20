@@ -4,6 +4,7 @@ function Board(string) {
                 [0, 0, 0, 0],
                 [0, 0, 0, 0],
                 [0, 0, 0, 0]];
+  this.firstMove = true;
 }
 
 Board.prototype.setUp = function() {
@@ -36,7 +37,12 @@ Board.prototype.spawnNumber = function() {
   var innerIndex = Math.floor(Math.random() * 4);
   if (this.board[outerIndex][innerIndex] === 0) {
     // 2 or 4
-    this.board[outerIndex][innerIndex] = Math.floor((Math.random() * 2) + 1 ) * 2;
+    if (this.firstMove === true){
+      this.board[outerIndex][innerIndex] = 2;
+      this.firstMove = false;
+    }else {
+      this.board[outerIndex][innerIndex] = Math.floor((Math.random() * 2) + 1 ) * 2;
+    }
   }
   else {
     this.spawnNumber();
@@ -58,6 +64,7 @@ Board.prototype.moveRight = function() {
       this.board[i].unshift(0);
     }
   }
+  this.spawnNumber();
 }
 
 Board.prototype.moveLeft = function() {
@@ -74,6 +81,7 @@ Board.prototype.moveLeft = function() {
       this.board[i].push(0);
     }
   }
+  this.spawnNumber();
 }
 
 Board.prototype.moveUp = function() {
@@ -92,6 +100,7 @@ Board.prototype.moveUp = function() {
     }
   }
   this.board = _.zip.apply(_, transposedBoard);
+  this.spawnNumber();
 }
 
 Board.prototype.moveDown = function() {
@@ -110,6 +119,7 @@ Board.prototype.moveDown = function() {
     }
   }
   this.board = _.zip.apply(_, transposedBoard);
+  this.spawnNumber();
 }
 
 

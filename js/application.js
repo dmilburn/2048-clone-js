@@ -10,10 +10,12 @@ board.setUp();
 
 board.toString();
 
-board.spawnNumber();
+board.moveUp();
 board.toString();
-board.spawnNumber();
+board.moveDown();
 board.toString();
-board.spawnNumber();
+board.moveRight();
+board.toString();
+board.moveLeft();
 board.toString();
 });
