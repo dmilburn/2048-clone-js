@@ -65,6 +65,12 @@ Board.prototype.moveUp = function() {
   var transposedBoard = _.zip.apply(_, this.board);
   for (i=0; i<4; i++) {
     transposedBoard[i] = _.without(transposedBoard[i], 0);
+    for (k=0; k < transposedBoard[i].length - 1; k++) {
+      if (transposedBoard[i][k] === transposedBoard[i][k+1]) {
+        transposedBoard[i][k] += transposedBoard[i][k+1];
+        transposedBoard[i].splice(k+1, 1);
+      }
+    }
     var paddingAmount = 4 - transposedBoard[i].length;
     for (j=0; j<paddingAmount; j++) {
       transposedBoard[i].push(0);
@@ -77,6 +83,12 @@ Board.prototype.moveDown = function() {
   var transposedBoard = _.zip.apply(_, this.board);
   for (i=0; i<4; i++) {
     transposedBoard[i] = _.without(transposedBoard[i], 0);
+    for (k=0; k < transposedBoard[i].length - 1; k++) {
+      if (transposedBoard[i][k] === transposedBoard[i][k+1]) {
+        transposedBoard[i][k+1] += transposedBoard[i][k];
+        transposedBoard[i].splice(k, 1);
+      }
+    }
     var paddingAmount = 4 - transposedBoard[i].length;
     for (j=0; j<paddingAmount; j++) {
       transposedBoard[i].unshift(0);
