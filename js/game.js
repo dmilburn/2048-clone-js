@@ -42,7 +42,13 @@ Board.prototype.moveRight = function() {
 }
 
 Board.prototype.moveLeft = function() {
-
+  for (i=0; i<4; i++) {
+    this.board[i] = _.without(this.board[i], 0);
+    var paddingAmount = 4 - this.board[i].length;
+    for (j=0; j<paddingAmount; j++) {
+      this.board[i].push(0);
+    }
+  }
 }
 
 Board.prototype.moveUp = function() {
