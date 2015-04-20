@@ -1,8 +1,5 @@
 TO DO:
 
-randomize the string to start the game
-make a start the game button that generates a new game
-change the color of the td according to the number it has become
 
 
 Pseudocode:

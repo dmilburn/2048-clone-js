@@ -2,6 +2,7 @@ function Board() {
   var defaultBoardStart = _.shuffle([2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
   defaultBoardStart = defaultBoardStart.join("");
   this.input = defaultBoardStart;
+  this.score = 0;
   this.board = [[0, 0, 0, 0],
                 [0, 0, 0, 0],
                 [0, 0, 0, 0],
@@ -58,6 +59,7 @@ Board.prototype.moveRight = function() {
     for (k=0; k < this.board[i].length - 1; k++) {
       if (this.board[i][k] === this.board[i][k+1]) {
         this.board[i][k+1] += this.board[i][k];
+        this.score += this.board[i][k+1];
         this.board[i].splice(k, 1);
       }
     }
@@ -75,6 +77,7 @@ Board.prototype.moveLeft = function() {
     for (k=0; k < this.board[i].length - 1; k++) {
       if (this.board[i][k] === this.board[i][k+1]) {
         this.board[i][k+1] += this.board[i][k];
+        this.score += this.board[i][k+1];
         this.board[i].splice(k, 1);
       }
     }
@@ -93,6 +96,7 @@ Board.prototype.moveUp = function() {
     for (k=0; k < transposedBoard[i].length - 1; k++) {
       if (transposedBoard[i][k] === transposedBoard[i][k+1]) {
         transposedBoard[i][k+1] += transposedBoard[i][k];
+        this.score += transposedBoard[i][k+1];
         transposedBoard[i].splice(k, 1);
       }
     }
@@ -112,6 +116,7 @@ Board.prototype.moveDown = function() {
     for (k=0; k < transposedBoard[i].length - 1; k++) {
       if (transposedBoard[i][k] === transposedBoard[i][k+1]) {
         transposedBoard[i][k+1] += transposedBoard[i][k];
+        this.score += transposedBoard[i][k+1];
         transposedBoard[i].splice(k, 1);
       }
     }
@@ -126,6 +131,7 @@ Board.prototype.moveDown = function() {
 
 Board.prototype.draw = function() {
   var colors = ["cornflowerblue", "aquamarine", "hotpink", "lightseagreen", "lavenderblush", "dodgerblue", "lightcoral", "lightgreen"];
+  document.getElementById('score').innerHTML = this.score;
   for (outerIndex=0; outerIndex<4; outerIndex++) {
     for (innerIndex=0; innerIndex<4; innerIndex++ ) {
       if (this.board[outerIndex][innerIndex] !== 0) {
