@@ -129,9 +129,13 @@ Board.prototype.draw = function() {
     for (innerIndex=0; innerIndex<4; innerIndex++ ) {
       if (this.board[outerIndex][innerIndex] !== 0) {
         document.getElementById(outerIndex + "-" + innerIndex).innerHTML = this.board[outerIndex][innerIndex];
+        if (this.board[outerIndex][innerIndex] == 8) {
+          document.getElementById(outerIndex + "-" + innerIndex).style.background = "tomato";
+        }
       }
       else {
         document.getElementById(outerIndex + "-" + innerIndex).innerHTML = "";
+        document.getElementById(outerIndex + "-" + innerIndex).style.background = "skyblue";
       }
     }
   }
