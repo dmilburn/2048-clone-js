@@ -1,12 +1,12 @@
 $(document).ready(function() {
 
-board = new Board('2024000000000000');
+board = new Board('2244000000000000');
 
 board.setUp();
 
 board.toString();
 
-board.moveRight();
+board.moveLeft();
 
 board.toString();
 

@@ -48,6 +48,12 @@ Board.prototype.moveRight = function() {
 Board.prototype.moveLeft = function() {
   for (i=0; i<4; i++) {
     this.board[i] = _.without(this.board[i], 0);
+    for (k=0; k < this.board[i].length - 1; k++) {
+      if (this.board[i][k] === this.board[i][k+1]) {
+        this.board[i][k] += this.board[i][k+1];
+        this.board[i].splice(k+1, 1);
+      }
+    }
     var paddingAmount = 4 - this.board[i].length;
     for (j=0; j<paddingAmount; j++) {
       this.board[i].push(0);
