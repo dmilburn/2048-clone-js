@@ -1,15 +1,9 @@
-
-
-function Square(number) {
-  this.number = number;
-}
-
 function Board(string) {
   this.input = string;
-  this.board = [[new Square(0), new Square(0), new Square(0), new Square(0)],
-                [new Square(0), new Square(0), new Square(0), new Square(0)],
-                [new Square(0), new Square(0), new Square(0), new Square(0)],
-                [new Square(0), new Square(0), new Square(0), new Square(0)]];
+  this.board = [[0, 0, 0, 0],
+                [0, 0, 0, 0],
+                [0, 0, 0, 0],
+                [0, 0, 0, 0]];
 }
 
 Board.prototype.setUp = function() {
@@ -19,16 +13,15 @@ Board.prototype.setUp = function() {
     if (numToTest !== 0) {
       var innerArrayIndex = i%4;
       var outerArrayIndex = parseInt(i/4);
-      this.board[outerArrayIndex][innerArrayIndex].number = parseInt(initialValues[i]);
+      this.board[outerArrayIndex][innerArrayIndex] = parseInt(initialValues[i]);
     }
   }
 }
 
-
 Board.prototype.toString = function(){
   var flattenedBoard = _.flatten(this.board);
   for (i=0; i<flattenedBoard.length; i++){
-    flattenedBoard[i] = flattenedBoard[i].number.toString();
+    flattenedBoard[i] = flattenedBoard[i].toString();
     if (i%4 === 3){
       flattenedBoard[i] += "\n";
     }
@@ -46,9 +39,9 @@ Board.prototype.moveRight = function() {
   // then innerIndex[0]
   for (var outerIndex=0; outerIndex<4; outerIndex++) {
     for (var innerIndex=2; innerIndex >=0; innerIndex--) {
-      if (this.board[outerIndex][innerIndex+1].number === 0) {
-        this.board[outerIndex][innerIndex+1].number = this.board[outerIndex][innerIndex].number;
-        this.board[outerIndex][innerIndex].number = 0;
+      if (this.board[outerIndex][innerIndex+1] === 0) {
+        this.board[outerIndex][innerIndex+1] = this.board[outerIndex][innerIndex];
+        this.board[outerIndex][innerIndex] = 0;
       }
     }
   }
