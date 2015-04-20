@@ -1,14 +1,21 @@
 html, body {
   height: 100%;
   width: 100%;
+  font-family: Helvetica;
+  background: white;
 }
 
 h1, h2, h3 {
   text-align: center;
 }
 
+p {
+  font-size: 20px;
+  margin: 0px;
+}
+
 table {
-  margin: 0 auto;
+  margin: .5em auto;
 }
 
 td {
@@ -22,6 +29,16 @@ td {
 }
 
 #new-game {
+  width: 5%;
+  height: 30px;
   margin-top: 30px;
-  margin-left: 46%;
+  margin-left: 47.5%;
+}
+
+.instructions {
+  margin: 0 auto;
+  width: 30%;
+  margin-top: 10px;
+  text-align: center;
+  padding: 2px;
 }
