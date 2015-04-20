@@ -27,7 +27,6 @@ Board.prototype.setUp = function() {
 
 Board.prototype.toString = function(){
   var flattenedBoard = _.flatten(this.board);
-  // console.log(flattenedBoard);
   for (i=0; i<flattenedBoard.length; i++){
     flattenedBoard[i] = flattenedBoard[i].number.toString();
     if (i%4 === 3){
@@ -36,5 +35,29 @@ Board.prototype.toString = function(){
   }
   console.log(flattenedBoard.join(""));
 }
+
+Board.prototype.moveRight = function() {
+// for each outerIndex:
+  // starting at innerIndex[2], check if innerIndex[i+1] === 0
+    // if it is 0:
+      // change innerIndex[i+1] to the value of innerIndex[i]
+      // change the value of innerIndex[i] to 0.
+  // then innerIndex[1]
+  // then innerIndex[0]
+
+}
+
+Board.prototype.moveLeft = function() {
+
+}
+
+Board.prototype.moveUp = function() {
+
+}
+
+Board.prototype.moveDown = function() {
+
+}
+
 
 

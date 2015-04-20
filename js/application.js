@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-board = new Board('0000000000000002');
+board = new Board('2000000000000000');
 
 board.setUp();
 

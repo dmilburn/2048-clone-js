@@ -1,10 +1,8 @@
 TO DO:
 
-Square class
-Board class
-to_s methods
 movement helper methods: rotate and transpose
 actual movement methods
+what happens if you don't input a string?
 
 
 Pseudocode:
