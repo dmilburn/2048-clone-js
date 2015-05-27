@@ -1,0 +1,49 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: Helvetica;
+  background: white;
+}
+
+h1, h2, h3 {
+  text-align: center;
+}
+
+p {
+  font-size: 20px;
+  margin: 0px;
+}
+
+table {
+  margin: .5em auto;
+}
+
+td {
+  text-align: center;
+  font-size: 30px;
+  height: 100px;
+  width: 100px;
+  background-color: skyblue;
+  border: 3px solid mediumseagreen;
+  color: white;
+}
+
+a {
+  color: mediumseagreen;
+}
+
+#new-game {
+  width: 5%;
+  height: 30px;
+  margin-top: 30px;
+  margin-left: 47.5%;
+  cursor: pointer;
+}
+
+.instructions {
+  margin: 0 auto;
+  width: 50%;
+  margin-top: 10px;
+  text-align: center;
+  padding: 2px;
+}
