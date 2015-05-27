@@ -59,7 +59,7 @@ Board.prototype.checkDirection = function(direction) {
 }
 
 Board.prototype.hasEmpty = function() {
-  if (_.contains(this.board, 0)) {
+  if (_.contains(_.flatten(this.board), 0)) {
     return true;
   }
   else {
@@ -69,6 +69,8 @@ Board.prototype.hasEmpty = function() {
 
 Board.prototype.move = function(direction) {
   this.checkDirection(direction);
+  var emptiness = this.hasEmpty();
+  console.log(emptiness);
   for (i=0; i<4; i++) {
     this.board[i] = _.without(this.board[i], 0);
     if (direction === "left" || direction === "up") {
