@@ -72,8 +72,12 @@ Board.prototype.move = function(direction) {
       }
     }
     else {
-      for (k=3; k>=0; k--) {
-
+      for (k=this.board[i].length-1; k>=0; k--) {
+        if (this.board[i][k] === this.board[i][k-1]) {
+          this.board[i][k-1] += this.board[i][k];
+          this.score += this.board[i][k-1];
+          this.board[i].splice(k, 1);
+        }
       }
     }
     var paddingAmount = 4 - this.board[i].length;
