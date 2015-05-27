@@ -68,7 +68,19 @@ Board.prototype.hasEmpty = function() {
 }
 
 Board.prototype.lose = function() {
-  console.log("You lose!!!")
+  this.board[1][0] = "G";
+  this.board[1][1] = "A";
+  this.board[1][2] = "M";
+  this.board[1][3] = "E";
+  this.board[2][0] = "O";
+  this.board[2][1] = "V";
+  this.board[2][2] = "E";
+  this.board[2][3] = "R";
+  for (i=0; i<4; i++) {
+    this.board[0][i] = 0;
+    this.board[3][i] = 0;
+  }
+
 }
 
 Board.prototype.move = function(direction) {
