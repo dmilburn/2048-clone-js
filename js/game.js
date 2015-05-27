@@ -77,6 +77,13 @@ Board.prototype.hasEmpty = function() {
   }
 }
 
+Board.newGame = function() {
+  board = new Board();
+  board.resetKeys();
+  board.setUp();
+  board.draw();
+}
+
 Board.prototype.lose = function() {
   this.board[1][0] = "G";
   this.board[1][1] = "A";
@@ -90,7 +97,12 @@ Board.prototype.lose = function() {
     this.board[0][i] = 0;
     this.board[3][i] = 0;
   }
-
+  ["up", "down", "right", "left"].forEach(function(direction) {
+    Mousetrap.bind(direction, function(event){
+    event.preventDefault();
+      Board.newGame();
+    })
+  });
 }
 
 Board.prototype.move = function(direction) {
@@ -153,10 +165,5 @@ Board.prototype.draw = function() {
   }
 }
 
-Board.newGame = function() {
-  board = new Board();
-  board.resetKeys();
-  board.setUp();
-  board.draw();
-}
+
 
