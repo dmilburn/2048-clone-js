@@ -62,11 +62,18 @@ Board.prototype.move = function(direction) {
   this.checkDirection(direction);
   for (i=0; i<4; i++) {
     this.board[i] = _.without(this.board[i], 0);
-    for (k=0; k < this.board[i].length - 1; k++) {
-      if (this.board[i][k] === this.board[i][k+1]) {
-        this.board[i][k+1] += this.board[i][k];
-        this.score += this.board[i][k+1];
-        this.board[i].splice(k, 1);
+    if (direction === "left" || direction === "up") {
+      for (k=0; k < this.board[i].length - 1; k++) {
+        if (this.board[i][k] === this.board[i][k+1]) {
+          this.board[i][k+1] += this.board[i][k];
+          this.score += this.board[i][k+1];
+          this.board[i].splice(k, 1);
+        }
+      }
+    }
+    else {
+      for (k=3; k>=0; k--) {
+
       }
     }
     var paddingAmount = 4 - this.board[i].length;
