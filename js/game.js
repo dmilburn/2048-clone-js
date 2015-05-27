@@ -58,6 +58,15 @@ Board.prototype.checkDirection = function(direction) {
   }
 }
 
+Board.prototype.hasEmpty = function() {
+  if (_.contains(this.board, 0)) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
 Board.prototype.move = function(direction) {
   this.checkDirection(direction);
   for (i=0; i<4; i++) {
