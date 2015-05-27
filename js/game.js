@@ -10,6 +10,16 @@ function Board() {
   this.firstMove = true;
 }
 
+Board.prototype.resetKeys = function() {
+  ["up", "down", "right", "left"].forEach(function(direction) {
+    Mousetrap.bind(direction, function(event){
+    event.preventDefault();
+    board.move(direction);
+    board.draw();
+    })
+  });
+}
+
 Board.prototype.setUp = function() {
   var initialValues = this.input.split("");
   for (i=0; i<initialValues.length; i++) {
@@ -145,6 +155,7 @@ Board.prototype.draw = function() {
 
 Board.newGame = function() {
   board = new Board();
+  board.resetKeys();
   board.setUp();
   board.draw();
 }
