@@ -67,15 +67,20 @@ Board.prototype.hasEmpty = function() {
   }
 }
 
+Board.prototype.lose = function() {
+  console.log("You lose!!!")
+}
+
 Board.prototype.move = function(direction) {
   this.checkDirection(direction);
+  var doubleness = false;
   var emptiness = this.hasEmpty();
-  console.log(emptiness);
   for (i=0; i<4; i++) {
     this.board[i] = _.without(this.board[i], 0);
     if (direction === "left" || direction === "up") {
       for (k=0; k < this.board[i].length - 1; k++) {
         if (this.board[i][k] === this.board[i][k+1]) {
+          doubleness = true;
           this.board[i][k+1] += this.board[i][k];
           this.score += this.board[i][k+1];
           this.board[i].splice(k, 1);
@@ -85,6 +90,7 @@ Board.prototype.move = function(direction) {
     else {
       for (k=this.board[i].length-1; k>=0; k--) {
         if (this.board[i][k] === this.board[i][k-1]) {
+          doubleness = true;
           this.board[i][k-1] += this.board[i][k];
           this.score += this.board[i][k-1];
           this.board[i].splice(k, 1);
@@ -100,7 +106,12 @@ Board.prototype.move = function(direction) {
     }
   }
   this.checkDirection(direction);
-  this.spawnNumber();
+  if (emptiness === false && doubleness === false) {
+    this.lose();
+  }
+  else {
+    this.spawnNumber();
+  }
 }
 
 Board.prototype.draw = function() {
