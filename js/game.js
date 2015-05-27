@@ -103,3 +103,4 @@ Board.newGame = function() {
   board.setUp();
   board.draw();
 }
+
